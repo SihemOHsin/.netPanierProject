@@ -1,0 +1,76 @@
+﻿@model List<Product>
+
+<style>
+    .cart-container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .cart-header {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .cart-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .cart-item-image {
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+        margin-right: 20px;
+    }
+
+    .cart-item-info {
+        flex-grow: 1;
+    }
+
+    .cart-item-name {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .cart-item-price {
+        font-style: italic;
+        color: #777;
+    }
+
+    .cart-total {
+        margin-top: 20px;
+        text-align: right;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="cart-container">
+    <h2 class="cart-header">Cart</h2>
+
+    <p>Item count: @ViewBag.ItemCount</p>
+
+    <h3>Products</h3>
+    <ul>
+        @foreach (var product in ViewBag.Products)
+        {
+
+            <li class="cart-item">
+                <img class="cart-item-image" src=/images/cart.png alt="Product Image" />
+                <div class="cart-item-info">
+                    <div class="cart-item-name">@product.Désignation</div>
+                    <div class="cart-item-price">Prix: @product.Prix</div>
+                </div>
+            </li>
+        }
+    </ul>
+
+    <p class="cart-total">Total prix: @ViewBag.Total</p>
+</div>
